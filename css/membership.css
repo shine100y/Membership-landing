@@ -110,3 +110,4 @@
 .vthumb__play{position:absolute;left:50%;top:50%;width:64px;height:44px;margin:-22px 0 0 -32px;border-radius:12px;background:#FF0033}
 .vthumb__play::after{content:"";position:absolute;left:26px;top:13px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff}
 .stories--2{gap:10px}
+.lead--sub{margin-top:8px}
