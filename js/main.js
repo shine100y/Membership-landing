@@ -258,3 +258,59 @@ function track(name) {
   modal.addEventListener('click', function (e) { if (e.target.hasAttribute('data-close')) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
 })();
+
+/* ---------- 가로 슬라이드: PC에서 화살표 버튼 + 마우스로 끌어서 넘기기 ---------- */
+(function () {
+  'use strict';
+  document.querySelectorAll('.kroll').forEach(function (box) {
+    var wrap = document.createElement('div');
+    wrap.className = 'slider';
+    box.parentNode.insertBefore(wrap, box);
+    wrap.appendChild(box);
+
+    function step() {
+      var first = box.firstElementChild;
+      return first ? first.getBoundingClientRect().width + 12 : box.clientWidth * 0.8;
+    }
+    ['prev', 'next'].forEach(function (dir) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'slider__btn slider__btn--' + dir;
+      b.setAttribute('aria-label', dir === 'prev' ? '이전 후기' : '다음 후기');
+      b.addEventListener('click', function () {
+        box.scrollBy({ left: (dir === 'prev' ? -1 : 1) * step(), behavior: 'smooth' });
+      });
+      wrap.appendChild(b);
+    });
+    function update() {
+      var max = box.scrollWidth - box.clientWidth - 2;
+      wrap.classList.toggle('is-start', box.scrollLeft <= 2);
+      wrap.classList.toggle('is-end', box.scrollLeft >= max);
+    }
+    box.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+
+    /* 마우스로 끌어서 넘기기 (터치는 기본 스크롤 사용) */
+    var down = false, startX = 0, startLeft = 0, moved = false;
+    box.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; startX = e.clientX; startLeft = box.scrollLeft;
+      box.classList.add('is-drag');
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      box.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = false; box.classList.remove('is-drag');
+      /* 가장 가까운 카드에 맞춰 멈춤 */
+      var s = step(); box.scrollTo({ left: Math.round(box.scrollLeft / s) * s, behavior: 'smooth' });
+    });
+    box.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    box.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  });
+})();
