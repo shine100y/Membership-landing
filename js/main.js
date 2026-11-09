@@ -191,7 +191,7 @@ function track(name) {
       body: new URLSearchParams(data)
     }).then(finish).catch(function () {
       submitBtn.disabled = false;
-      submitBtn.textContent = '멤버십 문의하기';
+      submitBtn.textContent = '문의하기';
       statusEl.textContent = '전송에 실패했어요. 인터넷 연결을 확인한 뒤 다시 눌러주세요.';
     });
   });
@@ -223,4 +223,38 @@ function track(name) {
       else v.pause();
     }, { threshold: 0.25 }).observe(v);
   }
+})();
+
+/* ---------- 유튜브 영상 팝업 ---------- */
+(function () {
+  'use strict';
+  var modal = document.getElementById('vmodal');
+  var frame = document.getElementById('vframe');
+  if (!modal || !frame) return;
+  var lastBtn = null;
+
+  function open(btn) {
+    var id = btn.getAttribute('data-video-id');
+    if (!/^[\w-]{6,20}$/.test(id)) return;
+    lastBtn = btn;
+    track('video_open');
+    var title = btn.getAttribute('data-video-title') || '유튜브 영상';
+    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&rel=0&playsinline=1" title="' + title.replace(/"/g, '') +
+      '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    modal.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    modal.querySelector('.vmodal__x').focus();
+  }
+  function close() {
+    frame.innerHTML = '';
+    modal.hidden = true;
+    document.documentElement.style.overflow = '';
+    if (lastBtn) lastBtn.focus();
+  }
+  document.querySelectorAll('[data-video-id]').forEach(function (b) {
+    b.addEventListener('click', function () { open(b); });
+  });
+  modal.addEventListener('click', function (e) { if (e.target.hasAttribute('data-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
 })();

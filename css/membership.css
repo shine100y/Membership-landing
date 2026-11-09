@@ -54,3 +54,62 @@
 .promo__sound[aria-pressed="true"]{background:var(--yellow);color:var(--navy)}
 .promo__sound[aria-pressed="true"]::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 8a5 5 0 010 8M19 5a9 9 0 010 14' stroke='black' stroke-width='2' fill='none'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 8a5 5 0 010 8M19 5a9 9 0 010 14' stroke='black' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
 .promo+.stats{margin-top:24px}
+
+/* 드라이버 퍼스트 클럽 5 */
+.club{counter-reset:c;display:grid;gap:8px}
+.club li{counter-increment:c}
+.club a{display:grid;grid-template-columns:40px 1fr 12px;column-gap:12px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;text-decoration:none}
+.club a::before{content:"0" counter(c);grid-row:span 2;width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--yellow);font-weight:900;font-size:15px;display:grid;place-items:center}
+.club a::after{content:"";grid-column:3;grid-row:1/span 2;width:8px;height:8px;border:solid #9AA3AF;border-width:2px 2px 0 0;transform:rotate(45deg)}
+.club b{font-size:17px;font-weight:800;letter-spacing:-.03em}
+.club span{grid-column:2;font-size:14px;color:var(--mute);line-height:1.45}
+
+/* 카드 안 번호 배지 왼쪽 정렬 */
+.mcard .kicker--left{margin-left:0;margin-right:0;margin-bottom:12px}
+.mcard__cond{margin:-8px 0 0;padding:0 22px 20px;font-size:13px;color:var(--mute)}
+
+/* 권익보호 */
+.rights{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.rights li{background:var(--paper);border-radius:12px;padding:14px;text-align:center;display:grid;gap:2px}
+.rights b{font-size:14px;color:#2A5BB8;font-weight:800}
+.rights span{font-size:15px;font-weight:700;letter-spacing:-.02em;line-height:1.4}
+
+/* 라이프 케어 */
+.care{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.care li{font-size:14px;font-weight:700;background:#EAF3FF;color:#1F4E9E;border-radius:8px;padding:4px 10px}
+.care__plus{margin-top:14px;font-size:15px;color:var(--mute);line-height:1.6}
+.care__plus b{display:block;color:var(--ink)}
+
+/* + 그리고 이런 혜택도 */
+.extra{margin-top:40px}
+.extra__h{font-size:19px;font-weight:800;letter-spacing:-.03em;text-align:center;margin-bottom:16px}
+.extra__h span{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:6px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:900}
+
+/* 후기 A: 가로로 넘기는 후기 카드 */
+.rvs{display:grid;grid-auto-flow:column;grid-auto-columns:82%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 10px;scrollbar-width:none}
+.rvs::-webkit-scrollbar{display:none}
+.rv{scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;display:flex;flex-direction:column;gap:8px}
+.rv__tag{align-self:flex-start;font-size:12px;font-weight:800;color:#2A5BB8;background:#EAF3FF;border-radius:6px;padding:2px 8px}
+.rv__h{font-size:18px;font-weight:800;letter-spacing:-.03em;line-height:1.4}
+.rv p:not(.rv__h):not(.rv__by){font-size:15px;color:#3A4350;line-height:1.6}
+.rv__by{margin-top:auto;padding-top:6px;font-size:13px;color:#C88A00;font-weight:700}
+.rvs__hint{margin-top:6px;font-size:13px;color:#9AA3AF;text-align:right}
+
+/* 멤버십 가입비 안내 + 인용 후기 */
+.fee{margin-top:16px;background:#fff;border:1.5px solid var(--navy);border-radius:var(--r);padding:20px 18px}
+.fee__h{font-size:18px;font-weight:800;letter-spacing:-.03em;color:var(--navy);margin-bottom:6px}
+.fee p:not(.fee__h){font-size:15px;color:#3A4350;line-height:1.65}
+.rq{margin-top:12px;display:grid;gap:8px}
+.rq blockquote{margin:0;background:#fff;border-left:4px solid var(--yellow);border-radius:0 12px 12px 0;padding:14px 16px;font-size:15px;line-height:1.6;color:#3A4350}
+.rq__by{font-size:13px;color:var(--mute);text-align:right}
+.rq__label{font-size:15px;font-weight:800;letter-spacing:-.02em;margin-bottom:2px}
+.rq--line{margin-top:20px}
+.rq--line blockquote{background:var(--paper)}
+
+/* 후기 C: 영상 썸네일 */
+.vgrid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:16px}
+.vthumb{position:relative;display:block;width:100%;padding:0;border:0;border-radius:var(--r);overflow:hidden;background:#000;cursor:pointer}
+.vthumb img{width:100%;aspect-ratio:16/9;object-fit:cover;opacity:.92}
+.vthumb__play{position:absolute;left:50%;top:50%;width:64px;height:44px;margin:-22px 0 0 -32px;border-radius:12px;background:#FF0033}
+.vthumb__play::after{content:"";position:absolute;left:26px;top:13px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff}
+.stories--2{gap:10px}
