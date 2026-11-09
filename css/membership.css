@@ -111,3 +111,5 @@
 .vthumb__play::after{content:"";position:absolute;left:26px;top:13px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff}
 .stories--2{gap:10px}
 .lead--sub{margin-top:8px}
+.hero__term{color:#fff;font-weight:800}
+.hero__sub--2{margin-top:10px}
