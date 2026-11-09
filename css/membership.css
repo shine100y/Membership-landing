@@ -95,10 +95,7 @@
 .rv__by{margin-top:auto;padding-top:6px;font-size:13px;color:#C88A00;font-weight:700}
 .rvs__hint{margin-top:6px;font-size:13px;color:#9AA3AF;text-align:right}
 
-/* 멤버십 가입비 안내 + 인용 후기 */
-.fee{margin-top:16px;background:#fff;border:1.5px solid var(--navy);border-radius:var(--r);padding:20px 18px}
-.fee__h{font-size:18px;font-weight:800;letter-spacing:-.03em;color:var(--navy);margin-bottom:6px}
-.fee p:not(.fee__h){font-size:15px;color:#3A4350;line-height:1.65}
+/* 인용 후기 */
 .rq{margin-top:12px;display:grid;gap:8px}
 .rq blockquote{margin:0;background:#fff;border-left:4px solid var(--yellow);border-radius:0 12px 12px 0;padding:14px 16px;font-size:15px;line-height:1.6;color:#3A4350}
 .rq__by{font-size:13px;color:var(--mute);text-align:right}
