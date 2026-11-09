@@ -1,5 +1,5 @@
 /**
- * 멤버십 자체폼 신청서 → 구글 시트 [멤버십_자체폼] 탭 자동 저장
+ * 멤버십 자체폼 문의서 → 구글 시트 [멤버십_자체폼] 탭 자동 저장
  *
  * ⚠️ 시트의 [확장 프로그램 → Apps Script]에 넣지 마세요. (기존 자동 입력 코드와 충돌 방지)
  *    가구 랜딩과 마찬가지로 script.google.com 에서 [새 프로젝트]로 따로 만드세요.
@@ -20,7 +20,7 @@ var SPREADSHEET_ID = '1WvKNQxoDLCTHDoH2yrgE3WFRByIuLpqgn2LZvFI331U';
 var TARGET_NAME = '멤버십_자체폼';
 var TARGET_GID = 0; // 0 = 이름으로만 찾기
 
-// 새 신청 알림 메일을 받을 주소 (비워두면 메일 안 보냄). 바꾼 뒤엔 [배포 관리]에서 새 버전으로 업데이트.
+// 새 문의 알림 메일을 받을 주소 (비워두면 메일 안 보냄). 바꾼 뒤엔 [배포 관리]에서 새 버전으로 업데이트.
 var NOTIFY_EMAIL = '';
 
 var HEADERS = [
@@ -67,7 +67,7 @@ function doPost(e) {
 
     if (NOTIFY_EMAIL) {
       MailApp.sendEmail(NOTIFY_EMAIL,
-        '[새 신청] ' + (p.page || '') + ' - ' + p.name + ' (' + (p.field || '') + ')',
+        '[새 문의] ' + (p.page || '') + ' - ' + p.name + ' (' + (p.field || '') + ')',
         HEADERS.map(function (h, i) { return h[1] + ': ' + String(row[i]).replace(/^'/, ''); }).join('\n'));
     }
     return out_({ ok: true });
@@ -82,7 +82,7 @@ function doPost(e) {
 function doGet() {
   var name = '';
   try { name = getSheet_().getName(); } catch (err) { name = '탭을 찾지 못함: ' + err; }
-  return out_({ ok: true, message: '멤버십 신청서 수집 웹 앱 정상 동작 중', tab: name });
+  return out_({ ok: true, message: '멤버십 문의서 수집 웹 앱 정상 동작 중', tab: name });
 }
 
 // 배포 전에 편집기에서 한 번 실행: 권한 승인 + 탭 생성/연결 확인

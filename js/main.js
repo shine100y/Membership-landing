@@ -28,10 +28,10 @@ function track(name) {
     }
   } catch (e) {}
 
-  /* ---------- 하단 고정 버튼: 신청 폼이 보이면 숨김 ---------- */
+  /* ---------- 하단 고정 버튼: 문의 폼이 보이면 숨김 ---------- */
   var dock = document.getElementById('dock');
   var applySec = document.getElementById('apply');
-  /* 첫 화면 신청 버튼이 보일 때도 숨겨서 버튼이 겹치지 않게 함 */
+  /* 첫 화면 문의 버튼이 보일 때도 숨겨서 버튼이 겹치지 않게 함 */
   var heroCta = document.querySelector('.hero__cta');
   if ('IntersectionObserver' in window && dock && applySec) {
     var seen = new Map();
@@ -127,7 +127,7 @@ function track(name) {
     check(sido.value && sigungu.value, 'region', '시·도와 시·군·구를 모두 선택해주세요.', sido.value ? sigungu : sido);
     check(!!form.querySelector('input[name="field"]:checked'), 'field', '관심 있는 배송 분야를 선택해주세요.', form.querySelector('.picks'));
     check(reason.value.trim().length >= REASON_MIN, 'reason', '지원 이유를 ' + REASON_MIN + '자 이상 적어주세요. 자세할수록 상담이 정확해져요.', reason);
-    check(agreePrivacy.checked, 'agree', '개인정보 수집 및 이용에 동의해야 신청할 수 있어요.', null);
+    check(agreePrivacy.checked, 'agree', '개인정보 수집 및 이용에 동의해야 문의할 수 있어요.', null);
     if (first) {
       var target = first.matches && first.matches('input,select,textarea') ? first : first.querySelector && first.querySelector('input');
       first.scrollIntoView({ block: 'center' });
@@ -191,7 +191,7 @@ function track(name) {
       body: new URLSearchParams(data)
     }).then(finish).catch(function () {
       submitBtn.disabled = false;
-      submitBtn.textContent = '면접 컨설팅 신청하기';
+      submitBtn.textContent = '멤버십 문의하기';
       statusEl.textContent = '전송에 실패했어요. 인터넷 연결을 확인한 뒤 다시 눌러주세요.';
     });
   });
