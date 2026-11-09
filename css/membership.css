@@ -85,14 +85,6 @@
 .extra__h{font-size:19px;font-weight:800;letter-spacing:-.03em;text-align:center;margin-bottom:16px}
 .extra__h span{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:6px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:900}
 
-/* 후기 A: 가로로 넘기는 후기 카드 */
-.rvs{display:grid;grid-auto-flow:column;grid-auto-columns:82%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 10px;scrollbar-width:none}
-.rvs::-webkit-scrollbar{display:none}
-.rv{scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;display:flex;flex-direction:column;gap:8px}
-.rv__tag{align-self:flex-start;font-size:12px;font-weight:800;color:#2A5BB8;background:#EAF3FF;border-radius:6px;padding:2px 8px}
-.rv__h{font-size:18px;font-weight:800;letter-spacing:-.03em;line-height:1.4}
-.rv p:not(.rv__h):not(.rv__by){font-size:15px;color:#3A4350;line-height:1.6}
-.rv__by{margin-top:auto;padding-top:6px;font-size:13px;color:#C88A00;font-weight:700}
 .rvs__hint{margin-top:6px;font-size:13px;color:#9AA3AF;text-align:right}
 
 /* 인용 후기 */
@@ -114,3 +106,38 @@
 .hero__term{color:#fff;font-weight:800}
 .hero__sub--2{margin-top:10px}
 .hero__h+.hero__sub{margin-top:24px}
+
+/* 후기 A: 인용 카드 */
+.qcards{display:grid;gap:12px}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 20px;text-align:center}
+.qcard__who{display:flex;align-items:center;gap:12px;text-align:left;margin-bottom:16px}
+.qcard__who>span:last-child{display:grid;font-size:15px;line-height:1.5;color:#3A4350}
+.qcard__who b{font-size:16px;color:var(--ink)}
+.qcard__who em{font-style:normal;font-weight:800;color:#E86A00}
+.qcard__ava{flex:none;width:48px;height:48px;border-radius:50%;border:2px solid #CFE3FB;background:radial-gradient(circle at 50% 36%,#22B5F0 0 8px,transparent 9px),radial-gradient(ellipse 15px 11px at 50% 82%,#1F6FE0 99%,transparent 100%),#F2F8FF}
+.qcard__q{font-size:clamp(21px,5.8vw,25px);font-weight:800;letter-spacing:-.04em;line-height:1.4;color:var(--navy);margin-bottom:12px}
+.qcard__q--sm{font-size:clamp(18px,5vw,21px)}
+.qcard__t{font-size:15px;color:#3A4350;line-height:1.7}
+.qcard__t+.qcard__t{margin-top:10px}
+.qcard__t b{color:var(--ink)}
+.qcard__stars{color:#F5B400;font-size:15px;letter-spacing:2px;margin-bottom:8px}
+
+/* 후기 B: 사진 카드 + 카톡 캡처 */
+.scam-rv{margin-top:28px;display:grid;gap:12px}
+.pcard{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.pcard img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 25%}
+.pcard__body{padding:18px 18px 20px}
+.pcard__h{font-size:18px;font-weight:800;letter-spacing:-.03em;color:#1F5FE0;line-height:1.45;margin-bottom:8px}
+.pcard__body p:last-child{font-size:15px;color:#3A4350;line-height:1.7}
+.kshots{display:grid;gap:12px}
+.kshot{margin:0;border-radius:var(--r);overflow:hidden;background:#B2C7DA;border:1px solid var(--line)}
+.kshot img{width:100%}
+.kshot figcaption{background:#fff;padding:16px 18px;font-size:16px;font-weight:700;letter-spacing:-.02em;line-height:1.55;color:var(--ink);text-align:center}
+.rv-note{font-size:13px;color:#8A93A0}
+
+/* 후기 C: 카톡 캡처 가로 스크롤 */
+.kroll{display:grid;grid-auto-flow:column;grid-auto-columns:82%;gap:12px;align-items:start;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 10px;scrollbar-width:none}
+.kroll::-webkit-scrollbar{display:none}
+.kroll .kshot{scroll-snap-align:center}
+.kroll .kshot img{max-height:520px;object-fit:cover;object-position:top}
+#stories .sub-h{margin-top:36px}
