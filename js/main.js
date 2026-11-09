@@ -53,7 +53,12 @@ function track(name) {
       dock.classList.toggle('is-hidden', hide);
     }, { rootMargin: '0px 0px -30% 0px' });
     io.observe(applySec);
-    if (heroCta) io.observe(heroCta);
+    /* 첫 화면 버튼은 화면에 조금이라도 보이면 숨김 (아래쪽 여백 없이 감시) */
+    if (heroCta) new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { seen.set(en.target, en.isIntersecting); });
+      var hide = false; seen.forEach(function (v) { if (v) hide = true; });
+      dock.classList.toggle('is-hidden', hide);
+    }).observe(heroCta);
   }
 
   /* ---------- 폼 ---------- */
