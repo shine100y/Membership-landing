@@ -31,10 +31,17 @@ function track(name) {
   /* ---------- 하단 고정 버튼: 신청 폼이 보이면 숨김 ---------- */
   var dock = document.getElementById('dock');
   var applySec = document.getElementById('apply');
+  /* 첫 화면 신청 버튼이 보일 때도 숨겨서 버튼이 겹치지 않게 함 */
+  var heroCta = document.querySelector('.hero__cta');
   if ('IntersectionObserver' in window && dock && applySec) {
-    new IntersectionObserver(function (entries) {
-      dock.classList.toggle('is-hidden', entries[0].isIntersecting);
-    }, { rootMargin: '0px 0px -30% 0px' }).observe(applySec);
+    var seen = new Map();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { seen.set(en.target, en.isIntersecting); });
+      var hide = false; seen.forEach(function (v) { if (v) hide = true; });
+      dock.classList.toggle('is-hidden', hide);
+    }, { rootMargin: '0px 0px -30% 0px' });
+    io.observe(applySec);
+    if (heroCta) io.observe(heroCta);
   }
 
   /* ---------- 폼 ---------- */
@@ -188,4 +195,32 @@ function track(name) {
       statusEl.textContent = '전송에 실패했어요. 인터넷 연결을 확인한 뒤 다시 눌러주세요.';
     });
   });
+})();
+
+/* ---------- 회사 소개 영상: 소리 켜기/끄기, 재생 기록 ---------- */
+(function () {
+  'use strict';
+  var v = document.getElementById('promoVideo');
+  var btn = document.getElementById('promoSound');
+  if (!v || !btn) return;
+  var played = false;
+  v.addEventListener('playing', function () { if (!played) { played = true; track('promo_play'); } });
+  btn.addEventListener('click', function () {
+    var on = v.muted;
+    v.muted = !on;
+    if (on) {
+      try { v.currentTime = 0; } catch (e) {}
+      var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
+      track('promo_sound_on');
+    }
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.textContent = on ? '소리 끄기' : '소리 켜기';
+  });
+  /* 화면 밖으로 나가면 멈춤 (데이터·배터리 절약) */
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      else v.pause();
+    }, { threshold: 0.25 }).observe(v);
+  }
 })();

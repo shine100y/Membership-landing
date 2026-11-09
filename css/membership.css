@@ -45,3 +45,12 @@
 /* 하단 회사 정보 */
 .foot p+p{margin-top:8px}
 .foot__fine{color:#5E6F83}
+
+/* 회사 소개 영상 (히어로 안) */
+.promo{position:relative;margin-top:24px;border-radius:var(--r);overflow:hidden;background:#000;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.promo video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.promo__sound{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px 0 10px;border:0;border-radius:999px;background:rgba(5,14,25,.72);color:#fff;font:700 13px/1 var(--font);cursor:pointer;backdrop-filter:blur(4px)}
+.promo__sound::before{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 9l6 6M22 9l-6 6' stroke='black' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 9l6 6M22 9l-6 6' stroke='black' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat}
+.promo__sound[aria-pressed="true"]{background:var(--yellow);color:var(--navy)}
+.promo__sound[aria-pressed="true"]::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 8a5 5 0 010 8M19 5a9 9 0 010 14' stroke='black' stroke-width='2' fill='none'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 8a5 5 0 010 8M19 5a9 9 0 010 14' stroke='black' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
+.promo+.stats{margin-top:24px}
