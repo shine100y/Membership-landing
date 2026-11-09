@@ -5,6 +5,18 @@
 var SHEET_URL = '';
 var PAGE_NAME = '멤버십';
 
+/* 처음 열 때 항상 맨 위에서 시작 (브라우저·인앱 브라우저가 이전 스크롤 위치를 복원하지 않도록)
+   #apply 처럼 주소에 위치(#)가 붙어 있으면 그 위치를 그대로 존중 */
+(function () {
+  'use strict';
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+  function toTop() { if (!location.hash) window.scrollTo(0, 0); }
+  toTop();
+  window.addEventListener('DOMContentLoaded', toTop);
+  window.addEventListener('load', function () { toTop(); setTimeout(toTop, 0); });
+  window.addEventListener('pageshow', function (e) { if (e.persisted) toTop(); });
+})();
+
 /* 클래리티 이벤트 기록 (클래리티가 없거나 막혀 있어도 오류 없이 넘어감) */
 function track(name) {
   try { if (typeof window.clarity === 'function') window.clarity('event', name); } catch (e) {}
