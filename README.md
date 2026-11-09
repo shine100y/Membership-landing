@@ -3,7 +3,7 @@
 홈페이지 멤버십 문의(transportgroup.co.kr/Membership)로 보내던 CTA를 대체하는 랜딩 + 자체 신청 폼.
 멤버십을 짧게 소개하고 하단에서 면접 컨설팅 신청을 받는다.
 
-- 예정 주소: https://shine100y.github.io/membership-landing/
+- 예정 주소: https://shine100y.github.io/Membership-landing/
 - 구성: 히어로 → 상담 가능한 배송 분야 → 소속 배송인·근속률 → 3 ZERO → 지입사기 근절 → 멤버십 4대 혜택 → 신청 폼
 
 ## 파일 구성
@@ -27,5 +27,5 @@
 ## 유입경로 추적
 
 ```
-https://shine100y.github.io/membership-landing/?utm_source=youtube&utm_campaign=M001_영상이름
+https://shine100y.github.io/Membership-landing/?utm_source=youtube&utm_campaign=M001_영상이름
 ```
