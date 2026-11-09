@@ -205,3 +205,4 @@
 .ladder li:not(:last-child)::after{content:"";position:absolute;right:-6px;top:50%;width:6px;height:2px;background:#C3CCD8}
 .ladder li.is-top{background:var(--navy);color:var(--yellow);font-size:16px}
 .feat__kakao{display:block;width:100%;border-radius:12px;margin-bottom:14px}
+.bridge{background:#fff;border-color:#D6E2F3}
