@@ -2,7 +2,7 @@
    설정: 구글 앱스 스크립트 배포 후 나온 "웹 앱 URL"을 SHEET_URL에 붙여넣으세요.
    비어 있으면 테스트 모드(실제 전송 없이 완료 화면만 표시)로 동작합니다.
    ========================================================= */
-var SHEET_URL = '';
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzT05OageogmtacndCLP74I1avEzxGhKbBI4fGaIGhkCil1H4H8mGV8vQ5KB8TKcQBf/exec';
 var PAGE_NAME = '멤버십';
 
 /* 처음 열 때 항상 맨 위에서 시작 (브라우저·인앱 브라우저가 이전 스크롤 위치를 복원하지 않도록)
