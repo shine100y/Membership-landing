@@ -192,3 +192,4 @@
 
 /* 카톡 캡처 모서리 */
 .kshot{border-radius:20px}
+.qcard__by{margin-top:14px;font-size:13px;color:var(--mute)}
