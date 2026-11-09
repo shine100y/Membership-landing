@@ -53,7 +53,7 @@
 .promo__sound::before{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 9l6 6M22 9l-6 6' stroke='black' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 9l6 6M22 9l-6 6' stroke='black' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat}
 .promo__sound[aria-pressed="true"]{background:var(--yellow);color:var(--navy)}
 .promo__sound[aria-pressed="true"]::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 8a5 5 0 010 8M19 5a9 9 0 010 14' stroke='black' stroke-width='2' fill='none'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3z'/%3E%3Cpath d='M16 8a5 5 0 010 8M19 5a9 9 0 010 14' stroke='black' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
-.promo+.hero__cta{margin-top:24px}
+.promo+.hero__cta{margin-top:36px}
 
 /* 드라이버 퍼스트 클럽 5 */
 .club{counter-reset:c;display:grid;gap:8px}
