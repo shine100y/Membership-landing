@@ -141,3 +141,23 @@
 .kroll .kshot{scroll-snap-align:center}
 .kroll .kshot img{max-height:520px;object-fit:cover;object-position:top}
 #stories .sub-h{margin-top:36px}
+
+/* 대표 스토리 (5남매 부모님 등) */
+.feat{margin-top:20px;background:var(--navy);color:#fff;border-radius:20px;padding:26px 20px 22px;overflow:hidden}
+.feat__tag{display:inline-block;font-size:13px;font-weight:800;color:var(--navy);background:var(--yellow);border-radius:6px;padding:3px 9px}
+.feat__h{font-size:clamp(22px,6.2vw,28px);font-weight:800;line-height:1.4;letter-spacing:-.04em;margin-top:12px}
+.feat__h em{font-style:normal;color:var(--yellow)}
+.feat__photo{margin:18px -20px 0}
+.feat__photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.feat__label{font-size:13px;font-weight:800;color:var(--yellow);margin-bottom:8px}
+.feat__before{margin-top:20px}
+.feat__before blockquote{margin:0;border-left:3px solid var(--yellow);padding:2px 0 2px 14px;font-size:16px;line-height:1.7;color:#E3E9F1}
+.feat__after{margin-top:22px;background:#fff;color:var(--ink);border-radius:14px;padding:18px 16px}
+.feat__after .feat__label{color:#2A5BB8}
+.feat__num{font-size:15px;font-weight:700;color:#3A4350}
+.feat__num b{font-size:clamp(28px,8vw,34px);font-weight:900;color:var(--navy);letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin:0 2px}
+.feat__pay{display:block;width:100%;margin:10px 0 14px;border:1px solid var(--line);border-radius:6px;object-fit:cover;object-position:right center;height:auto}
+.feat__t{font-size:15px;line-height:1.7;color:#3A4350}
+.feat__t+.feat__t{margin-top:10px}
+.feat__t b{color:var(--ink)}
+.feat__fine{margin-top:12px;font-size:12px;color:#9FB0C4;line-height:1.5}
