@@ -15,7 +15,7 @@
 | `css/membership.css` | 이 페이지 전용 스타일 (분야 카드, 선택 카드, 이메일·지원이유 입력칸) |
 | `js/main.js` | 폼 동작, **구글 시트 연결 주소(`SHEET_URL`)** — 비어 있으면 테스트 모드 |
 | `js/regions.js` | 시·도 / 시·군·구 목록 |
-| `apps-script/Code.gs` | 별도 Apps Script 프로젝트에 붙여넣을 코드 (`멤버십_자체폼` 탭 자동 생성) |
+| `apps-script/Code.gs` | 별도 Apps Script 프로젝트에 붙여넣을 코드 (광고테스트 > `유튜브_배송(공통)_자체폼` 탭, gid 1750822745) |
 
 ## 폼 항목 (홈페이지 폼 기준)
 
